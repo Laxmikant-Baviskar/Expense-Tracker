@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        /* background-color: #f5f5f5; */
+        background: linear-gradient(180deg, rgb(0, 255, 229) 0%, rgba(255, 255, 255, 1) 100%);
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        padding-right: 35px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: bold;
+
+
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+
+    h2 {
+        margin-top: 40px;
+        color: #333;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p#total {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+
+    /* Add rainbow colors */
+    @media only screen and (max-width: 800px) {
+        body {
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #f00;
+        }
+
+        button {
+            background-color: #ff0;
+        }
+
+        li {
+            background-color: #0f0;
+        }
+    }
+
+    @media only screen and (min-width: 801px) {
+        body {
+
+            background-repeat: no-repeat;
+
+            background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f);
+
+            background: linear-gradient(180deg, rgba(0, 87, 84, 1) 15%, rgba(0, 255, 231, 1) 94%);
+
+            background: linear-gradient(180deg, rgba(0, 255, 231, 1) 0%, rgba(0, 195, 178, 1) 47%, rgb(0, 0, 0) 100%);
+
+            background: linear-gradient(180deg, rgb(0, 255, 229) 0%, rgba(255, 255, 255, 1) 100%);
+
+            background-repeat: no-repeat;
+
+        }
+
+        h1 {
+            background: linear-gradient(180deg, rgb(0, 158, 150) 15%, rgb(0, 21, 255) 94%);
+            background: rgb(26, 1, 46);
+
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        button {
+            background-color: #333;
+            background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f);
+
+            background: radial-gradient(circle at 24.1% 68.8%,
+                    rgb(59, 20, 122) 0%,
+                    rgb(26, 1, 46) 99.4%);
+
+        }
+
+        /* ============== */
+
+        /* <!-- HTML !-->
+<button class="button-63" role="button">Button 63</button> */
+
+        /* CSS */
+        /* button {
+  align-items: center; */
+        /* background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB); */
+        /* 
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(59, 20, 122) 0%,
+    rgb(26, 1, 46) 99.4%
+  );
+
+
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+button:active,
+button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+    button{
+    font-size: 24px;
+    min-width: 196px;
+  }
+} */
+
+        /* ==================== */
+
+        li {
+            /* background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f);
+
+    background: radial-gradient(circle, rgba(255,255,255,1) 5%, rgba(88,255,228,1) 78%);
+
+    background: radial-gradient(circle, rgba(255,255,255,1) 5%, rgba(248,255,81,1) 78%);
+
+    background: radial-gradient(circle, rgba(255,255,255,1) 4%, rgba(254,255,57,1) 53%);
+
+    background: radial-gradient(circle, rgba(255,255,255,1) 4%, rgba(255,63,247,1) 43%);
+
+    background: radial-gradient(circle, rgba(255,255,255,1) 4%, rgb(255, 106, 0) 43%);
+
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 60%); */
+
+            background: linear-gradient(90deg, rgba(255, 149, 222, 1) 0%, rgba(231, 18, 137, 1) 72%);
+        }
+    }
+
+    /* .output_div{
+    position: relative; 
+    display: flex;
+  justify-content: flex-end;
+} */
+    /* 
+.output_div button{
+    position: absolute;
+    right: 0;
+    
+
+} */
+
+    /* 
+.delete_but{
+    position: absolute;
+    right: 0;
+}
+
+.edit_but{
+    position: absolute;
+    right: 10;
+} */
+
+    /* ============ Output div =========== */
+
+    .output_div {
+        padding: 10px;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* justify-items: right; */
+        /* position: relative; */
+
+    }
+
+    .output_div span {
+        font-weight: bold;
+        margin: 10px;
+        overflow: auto;
+        overflow-wrap: break-word;
+        overflow-wrap: normal;
+        flex-wrap: wrap;
+
+        /* margin-right: 50%; */
+        /* position: absolute; */
+        /* top: 50px; */
+        /* left: 50px; */
+    }
+
+    .edit_but {
+        margin-right: 10px;
+        margin-top: -10px;
+        position: absolute;
+        right: 30%;
+    }
+
+    .delete_but {
+        position: absolute;
+        right: 22%;
+        margin-right: 10px;
+        margin-top: -10px;
+    }
+
+    /* ==================== */
+
+    @media only screen and (max-width: 500px) {
+        body {
+
+            background-repeat: no-repeat;
+
+            background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f);
+
+            background: linear-gradient(180deg, rgba(0, 87, 84, 1) 15%, rgba(0, 255, 231, 1) 94%);
+
+            background: linear-gradient(180deg, rgba(0, 255, 231, 1) 0%, rgba(0, 195, 178, 1) 47%, rgb(0, 0, 0) 100%);
+
+            background: linear-gradient(180deg, rgb(0, 255, 229) 0%, rgba(255, 255, 255, 1) 100%);
+
+            background-repeat: no-repeat;
+
+        }
+
+        h1 {
+            background: linear-gradient(180deg, rgb(0, 158, 150) 15%, rgb(0, 21, 255) 94%);
+            background: rgb(26, 1, 46);
+
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        button {
+            background-color: #333;
+            background: linear-gradient(to right, #f00, #ff0, #0f0, #00f, #f0f);
+
+            background: radial-gradient(circle at 24.1% 68.8%,
+                    rgb(59, 20, 122) 0%,
+                    rgb(26, 1, 46) 99.4%);
+
+        }
+
+        li {
+            background: linear-gradient(90deg, rgba(255, 149, 222, 1) 0%, rgba(231, 18, 137, 1) 72%);
+
+        }
+
+        .output_div {
+            padding: 10px;
+            /* display: flex; */
+            /* justify-content: space-between; */
+            /* justify-items: right; */
+            /* position: relative; */
+
+        }
+
+        .output_div span {
+            font-weight: bold;
+            margin: 10px;
+            overflow: auto;
+            overflow-wrap: break-word;
+            overflow-wrap: normal;
+            flex-wrap: wrap;
+
+            /* margin-right: 50%; */
+            /* position: absolute; */
+            /* top: 50px; */
+            /* left: 50px; */
+        }
+
+        .edit_but {
+            margin-right: 10px;
+            margin-top: -10px;
+            position: absolute;
+            right: 35%;
+        }
+
+        .delete_but {
+            position: absolute;
+            right: 10%;
+            margin-right: 10px;
+            margin-top: -10px;
+        }
+    }
+
+
+</style>
+
+<body>
+
+
+    <!-- <h1>Expense Tracker</h1>
+    <form>
+      <label for="expense-description">Description:</label>
+      <input type="text" id="expense-description">
+      <br>
+      <label for="expense-amount">Amount:</label>
+      <input type="number" id="expense-amount">
+      <br>
+      <button type="button" onclick="addExpense()">Add Expense</button>
+    </form>
+    <h2>Expenses</h2>
+    <ul id="expense-list"></ul>
+    <p id="total"></p>
+ -->
+
+
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <form>
+            <label for="expense">Expense :</label>
+            <input type="text" id="expense" placeholder="Enter expense description" required>
+            <label for="amount">Amount :</label>
+            <input type="number" id="amount" placeholder="Enter expense amount" required>
+            <button type="submit" id="addExpense">Add Expense</button>
+        </form>
+        <h2>Expense List</h2>
+        <ul id="expenseList">
+        </ul>
+        <p id="total"></p>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    // define an array to hold the expenses
+    let expenses = [];
+
+    // define a function to add an expense to the array and update the display
+    function addExpense(event) {
+        event.preventDefault(); // prevent form submission
+        // get the values from the form
+        let expense = document.getElementById("expense").value;
+        let amount = parseFloat(document.getElementById("amount").value);
+        // add the expense to the array
+        expenses.push({ expense: expense, amount: amount });
+        // update the display
+        displayExpenses();
+        // reset the form
+        document.getElementById("expense").value = "";
+        document.getElementById("amount").value = "";
+    }
+
+    // define a function to display the expenses in the list and update the total
+    function displayExpenses() {
+        let expenseList = document.getElementById("expenseList");
+        let total = 0;
+        expenseList.innerHTML = "";
+        expenses.forEach(function (item, index) {
+            let li = document.createElement("li");
+            li.innerHTML = `<div class="output_div"><span>${item.expense}: ₨ ${item.amount.toFixed(2)}</span>
+                    <button class="edit_but" onclick="editExpense(${index})">Edit</button>
+                    <button class="delete_but" onclick="deleteExpense(${index})">Delete</button></div>`;
+            expenseList.appendChild(li);
+            total += item.amount;
+        });
+        document.getElementById("total").innerHTML = `Total: ₨ ${total.toFixed(2)}`;
+    }
+
+    // define a function to delete an expense from the array and update the display
+    function deleteExpense(index) {
+        expenses.splice(index, 1);
+        displayExpenses();
+    }
+
+    // define a function to edit an expense in the array and update the display
+    function editExpense(index) {
+        let expense = expenses[index];
+        let newExpense = prompt("Enter new expense description:", expense.expense);
+        let newAmount = parseFloat(prompt("Enter new expense amount:", expense.amount));
+        if (newExpense !== null && newAmount !== null) {
+            expenses[index] = { expense: newExpense, amount: newAmount };
+            displayExpenses();
+        }
+    }
+
+    // add an event listener to the form submit button
+    document.getElementById("addExpense").addEventListener("click", addExpense);
+
+    // call the displayExpenses function to initialize the display
+    displayExpenses();
+
+</script>
